@@ -1,21 +1,23 @@
 <script setup lang="ts">
-const tiles = ref<number[]>([...Array(5).keys()])
+const tiles = ref<number[]>([...Array.from({ length: 5 }).keys()])
 </script>
+
 <template>
-<div class="main">
-  <div class="container">
-    <div v-for="tile of tiles" :key="tile" calss="text-2xl text-white">{{ tile }}</div>
+  <div class="main">
+    <div class="container">
+      <div v-for="tile of tiles" :key="tile" calss="text-2xl text-white">
+        {{ tile }}
+      </div>
+    </div>
   </div>
-</div>
-
-
 </template>
+
 <style>
 .main {
-  display:flex;
-  --s: 100px;  /* size  */
-  --m: 4px;    /* margin */
-  --f: calc(1.732 * var(--s) + 4 * var(--m)  - 1px);
+  display: flex;
+  --s: 100px; /* size  */
+  --m: 4px; /* margin */
+  --f: calc(1.732 * var(--s) + 4 * var(--m) - 1px);
 }
 
 .container {
@@ -25,23 +27,21 @@ const tiles = ref<number[]>([...Array(5).keys()])
 .container div {
   width: var(--s);
   margin: var(--m);
-  height: calc(var(--s)*1.1547); 
+  height: calc(var(--s) * 1.1547);
   display: inline-block;
-  font-size:initial;
+  font-size: initial;
   clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
   background: red;
-  margin-bottom: calc(var(--m) - var(--s)*0.2885); 
+  margin-bottom: calc(var(--m) - var(--s) * 0.2885);
 }
 .container div:nth-child(odd) {
-  background:green;
+  background: green;
 }
 .container::before {
-  content: "";
-  width: calc(var(--s)/2 + var(--m));
+  content: '';
+  width: calc(var(--s) / 2 + var(--m));
   float: left;
   height: 120%;
-  shape-outside: repeating-linear-gradient(     
-                   #0000 0 calc(var(--f) - 3px),      
-                   #000  0 var(--f));
+  shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
 }
 </style>

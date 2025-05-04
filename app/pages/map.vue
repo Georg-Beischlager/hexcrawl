@@ -8,7 +8,7 @@ import { onTick } from 'vue3-pixi'
 // https://abbekeultjes.nl/honeycomb/
 // https://vue3-pixi.vercel.app/
 
-const showCoordinates = ref(true)
+const showCoordinates = ref(false)
 const viewX = ref(50)
 const viewY = ref(50)
 const dragPos: Ref<{ x: number, y: number } | undefined> = ref(undefined)
