@@ -28,7 +28,7 @@ const currentLog = ref<any | undefined>()
       <template v-if="currentLog">
         <div class="size-full pt-12 px-8">
           <h1 class="text-2xl">
-            {{ currentLog.title }} - {{ currentLog.created }}
+            {{ currentLog.title }} - {{ currentLog.createdAt }}
           </h1>
           <div v-html="currentLog.content_html" />
         </div>
