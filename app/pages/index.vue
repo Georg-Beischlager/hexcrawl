@@ -95,7 +95,7 @@ function dragEnd() {
 
 <template>
   <div v-resize-observer="onResizeObserver" class="size-full">
-    <Application :width="mapWidth" :height="mapHeight - 100" @mousedown="dragStart" @touchstart="dragStart" @mouseup="dragEnd" @touchend="dragEnd" @mousemove="dragging" @touchmove="dragging">
+    <Application :width="mapWidth" :height="mapHeight - 150" @mousedown="dragStart" @touchstart="dragStart" @mouseup="dragEnd" @touchend="dragEnd" @mousemove="dragging" @touchmove="dragging">
       <Container ref="gridContainer" :position-x="viewX" :position-y="viewY" :width="grid.pixelWidth" :height="grid.pixelHeight">
         <template v-for="(tile) of grid.filter(hex => !hex.data.visible)" :key="tile">
           <Graphics @render="tileRender($event, tile)" />
@@ -112,10 +112,10 @@ function dragEnd() {
         </template>
       </Container>
     </Application>
-    <div class="w-full h-[100px] flex justify-center bg-black border border-white text-white select-none leading-none">
-      <div class="px-2 w-2/5 flex flex-col gap-2 text-right">
+    <div class="w-full h-[150px] flex justify-center bg-black border border-white text-white select-none leading-none">
+      <div class="px-2 w-2/5 flex flex-col gap-2 text-right overflow-hidden">
         <div>H.A.N.N.A.H. Radar Command Center</div>
-        <div class="flex justify-start gap-1">
+        <div class="flex justify-start gap-1 flex-wrap items-center">
           <NuxtLink to="/database" class="border border-white px-2 bg-black">
             DB
           </NuxtLink>
@@ -130,14 +130,14 @@ function dragEnd() {
           </div>
         </div>
       </div>
-      <div class="text-xl border-l border-r border-white p-2 w-1/5 text-center">
-        Prototype Black Moon HexMap
+      <div class="text-xl border-l border-r border-white p-2 w-1/5 text-center  overflow-hidden">
+        Black Moon HexMap
       </div>
-      <div class="px-2 w-2/5">
-        Debug Console <br>
-        <div class="flex flex-wrap gap-4">
-          <div>&lt;ViewCoordinates&gt; [{{ 10000 + viewX }}/{{ 7000 + viewY }}]</div>
-          <div>&lt;HoverTile&gt; {type: HQ}</div>
+      <div class="px-2 w-2/5  overflow-hidden">
+        __Debug Console <br>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <div>&lt;ViewCoordinates&gt; [{{ Math.trunc(10000 + viewX) }} / {{ Math.trunc(7000 + viewY) }}]</div>
+          <div>&lt;HoverTile&gt; {type: ??}</div>
         </div>
       </div>
     </div>
