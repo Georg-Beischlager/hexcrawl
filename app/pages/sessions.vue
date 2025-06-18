@@ -31,7 +31,10 @@ onMounted(() => {
 
 <template>
   <div class="size-full  bg-black text-white p-4">
-    <div class="grid grid-cols-3 lg:w-1/2 border border-white gap-[1px] bg-white">
+    <NuxtLink to="/" class="border border-white leading-none p-1">
+      R.T.M.V.
+    </NuxtLink>
+    <div class="grid grid-cols-3 lg:w-1/2 border border-white gap-[1px] bg-white mt-4">
       <template v-for="(log, index) of filteredLogs" :key="index">
         <div class="bg-black">
           {{ log.title }}

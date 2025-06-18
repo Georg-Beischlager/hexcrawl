@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { logEntries, logEntriesForCoords } = await useData()
+const { logEntries, logEntriesForCoords, shortForUser } = await useData()
 const collapsed = ref(false)
 const currentLog = ref<Log | undefined>()
 const route = useRoute()
@@ -31,7 +31,7 @@ onMounted(() => {
         Coordinate Filter {{ route.query.row }}|{{ route.query.column }} [X]
       </NuxtLink>
       <div v-for="log of filteredLogs" :key="log.id" @click.stop="currentLog = log">
-        {{ log.title }} [{{ log.author }}]
+        {{ log.title }} [{{ shortForUser(log.author) }}]
       </div>
     </template>
     <template v-if="currentLog" #content>
