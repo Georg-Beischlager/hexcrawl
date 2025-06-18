@@ -1,8 +1,10 @@
 import type { HexCoordinates, HexSettings, OffsetCoordinates } from 'honeycomb-grid'
 import { defineHex, offsetToCube, Orientation } from 'honeycomb-grid'
 
+export const tileSize = 50
+
 export const defaultHexSettings: HexSettings = {
-  dimensions: { xRadius: 50, yRadius: 50 }, // these make for tiny hexes
+  dimensions: { xRadius: tileSize, yRadius: tileSize }, // these make for tiny hexes
   orientation: Orientation.POINTY, // pointy top
   origin: { x: 0, y: 0 }, // the center of the hex
   offset: -1, // how rows or columns of hexes are placed relative to each other

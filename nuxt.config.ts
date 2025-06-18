@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     componentIslands: true,
   },
   ssr: false,
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/eslint', 'vue3-pixi-nuxt'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/eslint', 'vue3-pixi-nuxt', 'nuxt-lodash'],
   css: ['~/assets/main.css'],
   runtimeConfig: {
     public: {

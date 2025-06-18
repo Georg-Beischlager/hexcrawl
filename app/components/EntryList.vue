@@ -8,7 +8,7 @@ defineEmits(['toggleCollapse'])
 
 <template>
   <div class="size-full flex bg-black text-white overflow-x-hidden">
-    <div class="relative h-full flex flex-col border-r border-white p-2 transition-all duration-500 select-none" :class="{ 'w-72': !collapsed, 'w-0': collapsed }">
+    <div class="relative h-full flex flex-col border-r border-white p-2 transition-all duration-500 select-none shrink-0" :class="{ 'w-72': !collapsed, 'w-0': collapsed }">
       <button
         class="absolute top-1/2 right-0 border border-white leading-none p-1 z-10 translate-x-full"
         @click="$emit('toggleCollapse')"
@@ -21,7 +21,7 @@ defineEmits(['toggleCollapse'])
         <slot name="list" />
       </template>
     </div>
-    <div class="max-w-full relative">
+    <div class="max-w-full md:max-w-[66%] lg:max-w-[50%] relative border-l border-white">
       <div class="absolute top-2 left-2 flex gap-4">
         <NuxtLink to="/" class="absolute top-2 left-2 border border-white leading-none p-1">
           R.T.M.V.
