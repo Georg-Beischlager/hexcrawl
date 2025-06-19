@@ -132,6 +132,7 @@ export interface Log {
   id: number;
   title?: string | null;
   author?: (number | null) | User;
+  gms?: string | null;
   players?:
     | {
         player?: string | null;
@@ -404,6 +405,7 @@ export interface PayloadMigration {
 export interface LogsSelect<T extends boolean = true> {
   title?: T;
   author?: T;
+  gms?: T;
   players?:
     | T
     | {

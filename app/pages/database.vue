@@ -4,6 +4,7 @@ const { dbEntries, tags, dbEntriesForCoords, shortForUser } = await useData()
 const collapsed = ref(false)
 const currentEntry = ref<Database | undefined>()
 const selectedTags = ref<number[]>([])
+const filterText = ref<string | undefined>()
 const route = useRoute()
 
 if (route.query.id) {
@@ -37,14 +38,14 @@ const filteredEntries = computed(() => {
   if (route.query.row && route.query.column) {
     ret = dbEntriesForCoords(Number(route.query.row), Number(route.query.column), ret)
   }
-
-  return ret
+  ret = sort(ret) as Database[]
+  return filterDB(ret, filterText.value)
 })
 </script>
 
 <template>
   <EntryList :collapsed="collapsed" @toggle-collapse="collapsed = !collapsed">
-    <template #tags>
+    <template #filters>
       <template v-if="tags && !collapsed">
         <div class="flex flex-wrap justify-center gap-2">
           <span
@@ -53,6 +54,10 @@ const filteredEntries = computed(() => {
             :class="{ 'border-black bg-white text-black': selectedTags.includes(tagEntry.id), 'border-white': !selectedTags.includes(tagEntry.id) }"
             @click="toggleTag(tagEntry.id)"
           >{{ tagEntry.tag }}</span>
+        </div>
+        <div class="p-1 flex gap-1">
+          <label for="filterField">Filter:</label>
+          <input v-model="filterText" name="filterField" type="text" class="bg-black border-b border-white focus:outline-none mx-1">
         </div>
       </template>
     </template>
@@ -67,6 +72,7 @@ const filteredEntries = computed(() => {
         </div>
       </div>
       <div v-for="db of filteredEntries" :key="db.id" :class="{ underline: db.id === currentEntry?.id }" @click.stop="currentEntry = db">
+        <Icon v-if="db.pinned" name="mdi:pin" size="0.75rem" />
         {{ db.title }} [{{ shortForUser(db.author) }}]
       </div>
     </template>

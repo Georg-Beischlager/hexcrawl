@@ -16,7 +16,7 @@ defineEmits(['toggleCollapse'])
         <span v-if="!collapsed">&lt;&lt;</span>
         <span v-if="collapsed">&gt;&gt;</span>
       </button>
-      <slot name="tags" />
+      <slot name="filters" />
       <template v-if="!collapsed">
         <slot name="list" />
       </template>

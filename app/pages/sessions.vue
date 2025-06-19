@@ -34,16 +34,31 @@ onMounted(() => {
     <NuxtLink to="/" class="border border-white leading-none p-1">
       R.T.M.V.
     </NuxtLink>
-    <div class="grid grid-cols-3 lg:w-1/2 border border-white gap-[1px] bg-white mt-4">
+    <div class="grid grid-cols-4 lg:w-2/3 border border-white gap-[1px] bg-white mt-4">
+      <div class="bg-black p-1">
+        Titel
+      </div>
+      <div class="bg-black  p-1">
+        Datum
+      </div>
+      <div class="bg-black  p-1">
+        Player
+      </div>
+      <div class="bg-black  p-1">
+        GM(s)
+      </div>
       <template v-for="(log, index) of filteredLogs" :key="index">
-        <div class="bg-black">
+        <div class="bg-black  p-1">
           {{ log.title }}
         </div>
-        <div class="bg-black">
+        <div class="bg-black  p-1">
           {{ log.when }}
         </div>
-        <div class="bg-black">
+        <div class="bg-black  p-1">
           {{ log.players?.reduce((acc, curr) => `${curr.player}, ${acc}`, '') }} H.A.N.N.A.H
+        </div>
+        <div class="bg-black  p-1">
+          {{ log.gms }}
         </div>
       </template>
     </div>

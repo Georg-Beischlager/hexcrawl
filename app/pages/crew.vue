@@ -21,11 +21,8 @@ onMounted(() => {
 <template>
   <EntryList :collapsed="collapsed" @toggle-collapse="collapsed = !collapsed">
     <template v-if="crew" #list>
-      <NuxtLink v-if="route && route.query.row && route.query.column" class="py-4" to="/logs">
-        Coordinate Filter {{ route.query.row }}|{{ route.query.column }} [X]
-      </NuxtLink>
       <div v-for="character of filteredCrew" :key="character.id" @click.stop="currentCharacter = character">
-        {{ character.name }}
+        {{ character.name }} [{{ character['player(s)'] }}]
       </div>
     </template>
     <template v-if="currentCharacter" #content>
