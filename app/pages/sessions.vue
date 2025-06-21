@@ -32,7 +32,7 @@ onMounted(() => {
 <template>
   <div class="size-full  bg-black text-white p-4">
     <NuxtLink to="/" class="border border-white leading-none p-1">
-      R.T.M.V.
+      BACK
     </NuxtLink>
     <div class="grid grid-cols-4 lg:w-2/3 border border-white gap-[1px] bg-white mt-4">
       <div class="bg-black p-1">

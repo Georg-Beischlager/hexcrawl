@@ -10,7 +10,7 @@ import { onTick } from 'vue3-pixi'
 const dragPos: Ref<{ x: number, y: number } | undefined> = ref(undefined)
 
 const gridContainer = ref<ContainerInst>()
-const { grid, selectedTile, mapHeight, mapWidth, scale, showCoordinates, viewX, viewY, centerView } = useGridData()
+const { grid, groupedTiles, selectedTile, mapHeight, mapWidth, menuHeight, scale, showCoordinates, viewX, viewY, centerView } = useGridData()
 let count = 0
 const blue = ref(200)
 
@@ -40,7 +40,10 @@ function onResizeObserver() {
 
 function tileRender(g: GraphicsInst, tile: CustomHex) {
   g.clear()
-  if (tile.data.visible) {
+  if (tile.data.color) {
+    g.lineStyle(5, tile.data.color)
+  }
+  else if (tile.data.visible) {
     g.lineStyle(5, `#00a3${blue.value.toString(16)}`)
   }
   else {
@@ -85,24 +88,28 @@ function selectTile(t: CustomHex) {
 
 <template>
   <div v-resize-observer="onResizeObserver" class="size-full">
-    <Application :width="mapWidth" :height="mapHeight - 150" @mousedown="dragStart" @touchstart="dragStart" @mouseup="dragEnd" @touchend="dragEnd" @mousemove="dragging" @touchmove="dragging">
+    <Application :width="mapWidth" :height="mapHeight - menuHeight" @mousedown="dragStart" @touchstart="dragStart" @mouseup="dragEnd" @touchend="dragEnd" @mousemove="dragging" @touchmove="dragging">
       <Container ref="gridContainer" :position-x="viewX" :position-y="viewY" :width="grid.pixelWidth" :height="grid.pixelHeight" :scale="scale">
-        <template v-for="(tile) of grid.filter(hex => !hex.data.visible)" :key="tile">
-          <Graphics @render="tileRender($event, tile)" />
-          <text v-if="showCoordinates" :anchor="0.5" :style="{ fill: 'white' }" :position-x="tile.x" :position-y="tile.y">
-            {{ tile.row }}|{{ tile.col }}
-          </text>
-        </template>
-        <template v-for="(tile) of grid.filter(hex => hex.data.visible)" :key="tile">
-          <Sprite event-mode="static" :texture="tile.data.sprite" :anchor="0.5" :x="tile.x" :y="tile.y" :width="80" :height="90" :z-index="1" @pointerdown="selectTile(tile)" />
-          <Graphics :z-index="2" @render="tileRender($event, tile)" />
-          <text v-if="showCoordinates" :anchor="0.5" :style="{ fill: 'white' }" :position-x="tile.x" :position-y="tile.y">
-            {{ tile.row }}|{{ tile.col }}
-          </text>
+        <template v-for="tileGroup of groupedTiles">
+          <template v-for="(tile) of tileGroup" :key="tile">
+            <Sprite v-if="tile.data.visible" event-mode="static" :texture="tile.data.sprite" :anchor="0.5" :x="tile.x" :y="tile.y" :width="80" :height="90" :z-index="1" @pointerdown="selectTile(tile)" />
+            <Graphics :z-index="2" @render="tileRender($event, tile)" />
+            <text v-if="tile.data.icon && !showCoordinates" :anchor="0.5" :style="{ fill: 'white', fontSize: '50px' }" :position-x="tile.x" :position-y="tile.y" @pointerdown="selectTile(tile)">
+              {{ tile.data.icon }}
+            </text>
+            <text v-if="showCoordinates" :anchor="0.5" :style="{ fill: 'white' }" :position-x="tile.x" :position-y="tile.y">
+              {{ tile.row }}|{{ tile.col }}
+            </text>
+          </template>
         </template>
       </Container>
     </Application>
-    <MapMenu />
+    <div :style="{ height: `${menuHeight}px` }">
+      <MapMenu />
+    </div>
+    <div class="fixed right-2 bg-black p-1 border border-white" :style="{ bottom: `${menuHeight}px` }">
+      <MapControls />
+    </div>
   </div>
 </template>
 

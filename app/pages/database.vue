@@ -65,22 +65,23 @@ const filteredEntries = computed(() => {
       <NuxtLink v-if="route && route.query.row && route.query.column" class="py-4" to="/database">
         Coordinate Filter {{ route.query.row }}|{{ route.query.column }} [X]
       </NuxtLink>
-      <div v-if="currentEntry && currentEntry.related?.length" class="py-4 flex">
-        <div>Related:</div>
-        <div v-for="(rel, index) of currentEntry.related" :key="index" class="px-1" @click="currentEntry = (rel.to as Database)">
-          {{ rel.alias }}
-        </div>
-      </div>
+
       <div v-for="db of filteredEntries" :key="db.id" :class="{ underline: db.id === currentEntry?.id }" @click.stop="currentEntry = db">
         <Icon v-if="db.pinned" name="mdi:pin" size="0.75rem" />
         {{ db.title }} [{{ shortForUser(db.author) }}]
       </div>
     </template>
     <template v-if="currentEntry" #content>
-      <div class="h-full max-w-full pt-12 pl-8 whitespace-pre-wrap">
+      <div class="max-w-full whitespace-pre-wrap">
         <h1 class="text-2xl">
           {{ currentEntry.title }} - {{ currentEntry.createdAt }}
         </h1>
+        <div v-if="currentEntry && currentEntry.related?.length" class="py-4 flex ">
+          <div>Related:</div>
+          <div v-for="(rel, index) of currentEntry.related" :key="index" class="px-1 cursor-pointer underline" @click="currentEntry = (rel.to as Database)">
+            {{ rel.alias }}
+          </div>
+        </div>
         <div v-html="currentEntry.content_html" />
       </div>
     </template>

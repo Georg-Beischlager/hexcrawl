@@ -26,7 +26,7 @@ onMounted(() => {
       </div>
     </template>
     <template v-if="currentCharacter" #content>
-      <div class="size-full pt-12 px-8">
+      <div class="size-full">
         <h1 class="text-2xl">
           {{ currentCharacter.name }} - {{ currentCharacter.createdAt }}
         </h1>

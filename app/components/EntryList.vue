@@ -16,18 +16,20 @@ defineEmits(['toggleCollapse'])
         <span v-if="!collapsed">&lt;&lt;</span>
         <span v-if="collapsed">&gt;&gt;</span>
       </button>
-      <slot name="filters" />
+      <div class="border-b border-white pb-2 border-dotted">
+        <slot name="filters" />
+      </div>
       <template v-if="!collapsed">
         <slot name="list" />
       </template>
     </div>
-    <div class="max-w-full md:max-w-[66%] lg:max-w-[50%] relative border-l border-white">
-      <div class="absolute top-2 left-2 flex gap-4">
-        <NuxtLink to="/" class="absolute top-2 left-2 border border-white leading-none p-1">
-          R.T.M.V.
-        </NuxtLink>
+    <div class="max-w-full lg:max-w-[1000px] relative border-l border-white max-h-screen overflow-y-scroll  pt-4 pb-8 pl-8 lg:px-16 ">
+      <NuxtLink to="/" class="border border-white leading-none p-1">
+        BACK
+      </NuxtLink>
+      <div class="mt-4">
+        <slot name="content" />
       </div>
-      <slot name="content" />
     </div>
   </div>
 </template>

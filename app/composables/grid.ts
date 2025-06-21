@@ -6,7 +6,9 @@ const viewY = ref(50)
 const showCoordinates = ref(false)
 const mapWidth = ref(100)
 const mapHeight = ref(100)
-const scale = ref(1)
+const rawScale = ref(100)
+const scale = computed(() => rawScale.value / 100)
+const menuHeight = ref(150)
 
 const debug = ref('')
 
@@ -52,8 +54,11 @@ const data: Array<{ coords: OffsetCoordinates } & HexData> = [
   { coords: { row: 14, col: 15 } as OffsetCoordinates, sprite: '/tiles/5/9.png', visible: false },
   { coords: { row: 16, col: 12 } as OffsetCoordinates, sprite: '/tiles/1/1.png', visible: false },
   { coords: { row: 15, col: 11 } as OffsetCoordinates, sprite: '/tiles/5/1.png', visible: false },
-
+  { coords: { row: 14, col: 15 } as OffsetCoordinates, sprite: '/tiles/5/1.png', visible: false, icon: '!!', color: 'yellow' },
+  { coords: { row: 14, col: 16 } as OffsetCoordinates, sprite: '/tiles/5/1.png', visible: false, icon: '!!', color: 'red' },
+  { coords: { row: 14, col: 17 } as OffsetCoordinates, sprite: '/tiles/5/1.png', visible: false, icon: '!!', color: 'white' },
 ]
+
 updateGrid()
 init()
 
@@ -64,6 +69,8 @@ async function init() {
       coords: { row: mapTile.coordinates?.row, col: mapTile.coordinates?.column } as OffsetCoordinates,
       sprite: (mapTile.image as Media).url || '',
       visible: !!mapTile.visible,
+      color: mapTile.color || undefined,
+      icon: mapTile.icons || undefined
     }
   })
   if (apiTiles) {
@@ -86,6 +93,21 @@ function centerView() {
   viewY.value = (mapHeight.value / 2 - (grid.pixelHeight) / 2) * scale.value
 }
 
+const groupedTiles = computed(() => {
+  const data = []
+  // invisible
+  data.push(grid.filter(h => h.data.visible !== true && h.data.color === undefined))
+  // visible
+  data.push(grid.filter(h => h.data.visible === true && h.data.color === undefined))
+  // white
+  data.push(grid.filter(h => h.data.color === 'white'))
+  // yellow
+  data.push(grid.filter(h => h.data.color === 'yellow'))
+  // red
+  data.push(grid.filter(h => h.data.color === 'red'))
+  return data
+})
+
 export function useGridData() {
-  return { grid, debug, selectedTile, mapWidth, mapHeight, scale, showCoordinates, viewX, viewY, centerView }
+  return { grid, groupedTiles, debug, selectedTile, mapWidth, mapHeight, menuHeight, rawScale, scale, showCoordinates, viewX, viewY, centerView }
 }
