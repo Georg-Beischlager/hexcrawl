@@ -11,10 +11,10 @@ const scale = computed(() => rawScale.value / 100)
 const menuHeight = ref(150)
 
 const debug = ref('')
-
+const emptyTileUrl = 'https://blackmoon-api.democrify.xyz/api/media/file/empty-1.png'
 const hexCoords: Array<HexCoordinates> = createHexIndexes(30)
 const hexes = hexCoords.map(
-  coordinates => CustomHex.create(coordinates, { visible: false, sprite: '/tiles/1/1.png' }),
+  coordinates => CustomHex.create(coordinates, { visible: false, sprite: emptyTileUrl }),
 )
 const grid = new Grid(CustomHex, hexes)
 const selectedTile = ref<CustomHex | undefined>()
@@ -28,12 +28,13 @@ async function init() {
       sprite: (mapTile.image as Media).url || '',
       visible: !!mapTile.visible,
       color: mapTile.color || undefined,
-      icon: mapTile.icons || undefined
+      icon: mapTile.icons || undefined,
     }
   })
   if (apiTiles) {
     data.push(...apiTiles)
     updateGrid()
+    selectedTile.value = grid.getHex({ row: 14, col: 13 } as OffsetCoordinates)
   }
 }
 
@@ -63,9 +64,11 @@ const groupedTiles = computed(() => {
   data.push(grid.filter(h => h.data.color === 'yellow'))
   // red
   data.push(grid.filter(h => h.data.color === 'red'))
+  // selected tile
+  data.push(grid.filter(h => h.row === selectedTile.value?.row && h.col === selectedTile.value?.col))
   return data
 })
 
 export function useGridData() {
-  return { grid, groupedTiles, debug, selectedTile, mapWidth, mapHeight, menuHeight, rawScale, scale, showCoordinates, viewX, viewY, centerView }
+  return { grid, groupedTiles, emptyTileUrl, debug, selectedTile, mapWidth, mapHeight, menuHeight, rawScale, scale, showCoordinates, viewX, viewY, centerView }
 }

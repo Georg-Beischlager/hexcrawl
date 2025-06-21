@@ -10,7 +10,7 @@ import { onTick } from 'vue3-pixi'
 const dragPos: Ref<{ x: number, y: number } | undefined> = ref(undefined)
 
 const gridContainer = ref<ContainerInst>()
-const { grid, groupedTiles, selectedTile, mapHeight, mapWidth, menuHeight, scale, showCoordinates, viewX, viewY, centerView } = useGridData()
+const { grid, groupedTiles, emptyTileUrl, selectedTile, mapHeight, mapWidth, menuHeight, scale, showCoordinates, viewX, viewY, centerView } = useGridData()
 let count = 0
 const blue = ref(200)
 
@@ -24,7 +24,7 @@ onMounted(() => {
 })
 
 function tickFn(delta: number) {
-  count += delta * 0.025
+  count += delta * 0.1
   blue.value = Math.trunc(190 + Math.sin(count) * 60)
 }
 
@@ -43,7 +43,7 @@ function tileRender(g: GraphicsInst, tile: CustomHex) {
   if (tile.data.color) {
     g.lineStyle(5, tile.data.color)
   }
-  else if (tile.data.visible) {
+  else if (selectedTile.value?.col === tile.col && selectedTile.value?.row === tile.row) {
     g.lineStyle(5, `#00a3${blue.value.toString(16)}`)
   }
   else {
@@ -93,8 +93,9 @@ function selectTile(t: CustomHex) {
         <template v-for="tileGroup of groupedTiles">
           <template v-for="(tile) of tileGroup" :key="tile">
             <Sprite v-if="tile.data.visible" event-mode="static" :texture="tile.data.sprite" :anchor="0.5" :x="tile.x" :y="tile.y" :width="80" :height="90" :z-index="1" @pointerdown="selectTile(tile)" />
+            <Sprite v-if="!tile.data.visible" event-mode="static" :texture="emptyTileUrl" :anchor="0.5" :x="tile.x" :y="tile.y" :width="80" :height="90" :z-index="1" @pointerdown="selectTile(tile)" />
             <Graphics :z-index="2" @render="tileRender($event, tile)" />
-            <text v-if="tile.data.icon && !showCoordinates" :anchor="0.5" :style="{ fill: 'white', fontSize: '50px' }" :position-x="tile.x" :position-y="tile.y" @pointerdown="selectTile(tile)">
+            <text v-if="tile.data.icon && !showCoordinates" :anchor="0.5" :style="{ fill: 'white', fontSize: '50px' }" :position-x="tile.x" :position-y="tile.y">
               {{ tile.data.icon }}
             </text>
             <text v-if="showCoordinates" :anchor="0.5" :style="{ fill: 'white' }" :position-x="tile.x" :position-y="tile.y">

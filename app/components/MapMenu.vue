@@ -50,6 +50,12 @@ const tileLogLinks = computed(() => {
           <NuxtLink to="https://blackmoon-api.democrify.xyz/admin/login" class="border border-white px-2 bg-black" target="_blank">
             BACKEND
           </NuxtLink>
+           <NuxtLink to="/help" class="border border-white px-2 bg-black">
+            HELP
+          </NuxtLink>
+           <NuxtLink to="/about" class="border border-white px-2 bg-black">
+            ABOUT
+          </NuxtLink>
         </div>
       </div>
       <div class="px-2  overflow-hidden">
