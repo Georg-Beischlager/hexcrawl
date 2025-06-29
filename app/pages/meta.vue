@@ -10,13 +10,32 @@
       <h1>
         Meta
       </h1>
-      <h2 class="text-xl">
-        FAQ
+      <h2 class="mt-8">
+        Was ist eine Session?
       </h2>
-      <ul>
-        <li><a href="/about" class="underline">Was ist diese Webseite?</a></li>
-        <li><a href="/help" class="underline">Wie funktioniert diese Webseite?</a></li>
-      </ul>
+      <p>TODO</p>
+      <h2 class="mt-8">
+        Warum soll ich eine Session leiten?
+      </h2>
+      <p>TODO</p>
+      <h2 id="ressources" class="mt-8">
+        Ressourcen
+      </h2>
+      <p>
+        Folgende Ressourcen können beim Leiten einer Session unterstützen:
+      </p>
+      <h3>Beispiel: Session G1</h3>
+      <p>TODO</p>
+      <h3>Was braucht meine Session</h3>
+      <p>Abenteuer Checklist TODO</p>
+      <h3>Wer, Wo, Wann</h3>
+      <p>TODO</p>
+      <h3>OpenLegends: Quickbuilds, Kompendien</h3>
+      <p>TODO</p>
+      <h3>Zufallstabellen</h3>
+      <p>TODO</p>
+      <h3>Sonstiges</h3>
+      <p>Organisation, Terminfindug, Zeitplanung</p>
     </div>
   </div>
 </template>
