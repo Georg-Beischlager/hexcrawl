@@ -25,7 +25,7 @@ async function init() {
   const apiTiles = mapTiles.value?.map((mapTile) => {
     return {
       coords: { row: mapTile.coordinates?.row, col: mapTile.coordinates?.column } as OffsetCoordinates,
-      sprite: (mapTile.image as Media).url || '',
+      sprite: (mapTile.image as Media)?.url ?? '',
       visible: !!mapTile.visible,
       color: mapTile.color || undefined,
       icon: mapTile.icons || undefined,

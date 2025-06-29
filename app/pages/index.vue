@@ -92,8 +92,8 @@ function selectTile(t: CustomHex) {
       <Container ref="gridContainer" :position-x="viewX" :position-y="viewY" :width="grid.pixelWidth" :height="grid.pixelHeight" :scale="scale">
         <template v-for="tileGroup of groupedTiles">
           <template v-for="(tile) of tileGroup" :key="tile">
-            <Sprite v-if="tile.data.visible" event-mode="static" :texture="tile.data.sprite" :anchor="0.5" :x="tile.x" :y="tile.y" :width="80" :height="90" :z-index="1" @pointerdown="selectTile(tile)" />
-            <Sprite v-if="!tile.data.visible" event-mode="static" :texture="emptyTileUrl" :anchor="0.5" :x="tile.x" :y="tile.y" :width="80" :height="90" :z-index="1" @pointerdown="selectTile(tile)" />
+            <Sprite v-if="tile.data.visible && tile.data.sprite" event-mode="static" :texture="tile.data.sprite" :anchor="0.5" :x="tile.x" :y="tile.y" :width="80" :height="90" :z-index="1" @pointerdown="selectTile(tile)" />
+            <Sprite v-else event-mode="static" :texture="emptyTileUrl" :anchor="0.5" :x="tile.x" :y="tile.y" :width="80" :height="90" :z-index="1" @pointerdown="selectTile(tile)" />
             <Graphics :z-index="2" @render="tileRender($event, tile)" />
             <text v-if="tile.data.icon && !showCoordinates" :anchor="0.5" :style="{ fill: 'white', fontSize: '50px' }" :position-x="tile.x" :position-y="tile.y">
               {{ tile.data.icon }}

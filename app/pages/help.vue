@@ -7,7 +7,7 @@
       BACK
     </NuxtLink>
     <div class="lg:w-2/3 mt-4">
-      <h1 class="text-2xl mb-4">
+      <h1>
         Hilfe
       </h1>
       <p class="mb-4">
@@ -23,7 +23,9 @@
       <h2 id="map" class="text-xl my-4">
         Karte
       </h2>
-      <NuxtLink to="/" class="mb-2 underline block">Zur Karte</NuxtLink>
+      <NuxtLink to="/" class="mb-2 underline block">
+        Zur Karte
+      </NuxtLink>
       <p>
         Die Karte bietet einen Überblick der bereits erkundedeten Gebiete. Unten befindet sich das Hauptmenü.
         Dort kann man zu den Unterseiten navigieren und erhält Informationen über die ausgewählte Kachel.
@@ -41,7 +43,9 @@
       <h2 id="db" class="text-xl my-4">
         Datenbankeinträge
       </h2>
-      <NuxtLink to="/database" class="mb-2 underline block">Zur Datenbankansicht</NuxtLink>
+      <NuxtLink to="/database" class="mb-2 underline block">
+        Zur Datenbankansicht
+      </NuxtLink>
       <p>
         Datenbankeinträge speichern alle grundsätzlichen Informationen zur Kampagne. Zum Beispiel: Planeten, Völker, Tiere, Regeln, HANNAS Upgrade Liste... <br>
         Da die Daten so zahlreich sind gibt es oben zwei Filtermöglichkeiten: einerseits auf Tag-Basis andererseits auf einer Volltextsuche. <br>
@@ -51,8 +55,12 @@
       <h2 id="logs" class="text-xl my-4">
         Logs & Sessions
       </h2>
-      <NuxtLink to="/logs" class="mb-2 underline block">Zu den Logs</NuxtLink>
-      <NuxtLink to="/sessions" class="mb-2 underline block">Zu den Sessions</NuxtLink>
+      <NuxtLink to="/logs" class="mb-2 underline block">
+        Zu den Logs
+      </NuxtLink>
+      <NuxtLink to="/sessions" class="mb-2 underline block">
+        Zu den Sessions
+      </NuxtLink>
       <p>
         Logeinträge sind pro gespielter Session gedacht. Einerseits ergibt sich daraus die Tabelle unter SESSIONS, andererseits auch die Einträge unter LOGS.<br>
         Am Anfang jeder Session wird ein "Lorekeeper" festgelegt, Aufgabe dieser Person ist es Protokoll zu führen, damit zukünftige Abenteurer*Innen wissen was geschehen ist.
@@ -60,7 +68,9 @@
       <h2 id="crew" class="text-xl my-4">
         Crew
       </h2>
-      <NuxtLink to="/crew" class="mb-2 underline block">Zur Crew</NuxtLink>
+      <NuxtLink to="/crew" class="mb-2 underline block">
+        Zur Crew
+      </NuxtLink>
       <p>
         Auf der Crew Seite werden alle Charactere angezeigt die derzeit Teil der Basis sind. Diese können Spieler*Innen zugeordnet sein - oder auch nicht.<br>
         Alle sind herzlich eingeladen Teile ihrer Geschichte oder Bilder hier mit den anderen zu teilen.
@@ -68,7 +78,9 @@
       <h2 id="backend" class="text-xl my-4">
         Backend
       </h2>
-      <NuxtLink to="https://blackmoon-api.democrify.xyz/admin/login" class="mb-2 underline block">Zum Backend</NuxtLink>
+      <NuxtLink to="https://blackmoon-api.democrify.xyz/admin/login" class="mb-2 underline block">
+        Zum Backend
+      </NuxtLink>
       <p>
         Das Backend verwaltet die Daten auf dieser Webseite. Die Daten dort sind analog zu dieser Webseite gegliedert.<br>
         Den Login könnt ihr bei Georg anfragen, eine eingeständige Registrierung ist nicht vogesehen.<br>

@@ -27,7 +27,7 @@ onMounted(() => {
     </template>
     <template v-if="currentCharacter" #content>
       <div class="size-full">
-        <h1 class="text-2xl">
+        <h1>
           {{ currentCharacter.name }} - {{ currentCharacter.createdAt }}
         </h1>
         <img v-if="currentCharacter.image && (currentCharacter.image as Media).url " :src="((currentCharacter.image as Media).url as string)" class="max-h-[500px] max-w-[500px] select-none">

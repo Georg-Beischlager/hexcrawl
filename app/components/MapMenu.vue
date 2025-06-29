@@ -34,7 +34,7 @@ const tileLogLinks = computed(() => {
     <div class="size-full flex-col justify-between items-center max-w-screen-lg  text-white select-none leading-none mx-auto">
       <div class="px-2 flex flex-col gap-2 text-center overflow-hidden">
         <div>H.A.N.N.A.H. Interface</div>
-        <div class="flex gap-1 items-center flex-wrap">
+        <nav class="flex gap-1 items-center flex-wrap justify-center">
           <NuxtLink to="/sessions" class="border border-white px-2 bg-black">
             SESSIONS
           </NuxtLink>
@@ -47,16 +47,19 @@ const tileLogLinks = computed(() => {
           <NuxtLink to="/crew" class="border border-white px-2 bg-black">
             CREW
           </NuxtLink>
+          <NuxtLink to="/meta" class="border border-white px-2 bg-black">
+            META
+          </NuxtLink>
           <NuxtLink to="https://blackmoon-api.democrify.xyz/admin/login" class="border border-white px-2 bg-black" target="_blank">
             BACKEND
           </NuxtLink>
-           <NuxtLink to="/help" class="border border-white px-2 bg-black">
+          <NuxtLink to="/help" class="border border-white px-2 bg-black">
             HELP
           </NuxtLink>
-           <NuxtLink to="/about" class="border border-white px-2 bg-black">
+          <NuxtLink to="/about" class="border border-white px-2 bg-black">
             ABOUT
           </NuxtLink>
-        </div>
+        </nav>
       </div>
       <div class="px-2  overflow-hidden">
         <div class="flex flex-wrap gap-2 mt-2">

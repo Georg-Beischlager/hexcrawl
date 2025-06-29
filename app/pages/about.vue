@@ -7,7 +7,7 @@
       BACK
     </NuxtLink>
     <div class="lg:w-2/3 mt-4">
-      <h1 class="text-2xl mb-4">
+      <h1>
         About
       </h1>
       <p class="mb-4">

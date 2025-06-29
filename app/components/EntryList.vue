@@ -23,7 +23,7 @@ defineEmits(['toggleCollapse'])
         <slot name="list" />
       </template>
     </div>
-    <div class="max-w-full lg:max-w-[1000px] relative border-l border-white max-h-screen overflow-y-scroll  pt-4 pb-8 pl-8 lg:px-16 ">
+    <div id="content-container" class="max-w-full lg:max-w-[1000px] relative border-l border-white max-h-screen overflow-y-auto  pt-4 pb-8 pl-8 lg:px-16 ">
       <NuxtLink to="/" class="border border-white leading-none p-1">
         BACK
       </NuxtLink>
@@ -33,3 +33,19 @@ defineEmits(['toggleCollapse'])
     </div>
   </div>
 </template>
+
+<style>
+#content-container::-webkit-scrollbar {
+  width: 0.25rem;
+  background: #000000;
+}
+
+#content-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+#content-container::-webkit-scrollbar-thumb {
+  outline: 1px solid white;
+  background-color: black;
+}
+</style>

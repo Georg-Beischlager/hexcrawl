@@ -9,3 +9,27 @@ body,
   height: 100%;
   font-family: 'Courier New', Courier, monospace;
 }
+
+ul {
+  list-style-type: georgian;
+  list-style-position: inside;
+}
+
+h1 {
+  @apply text-2xl mb-4  font-bold
+}
+h2 {
+  @apply text-2xl mb-4
+}
+h3 {
+  @apply text-xl mb-2  font-bold
+}
+h4 {
+  @apply text-xl mb-2
+}
+h5 {
+  @apply text-lg font-bold
+}
+h6{
+  @apply text-lg
+}

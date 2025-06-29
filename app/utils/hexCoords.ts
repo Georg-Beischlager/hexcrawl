@@ -42,7 +42,7 @@ export class CustomHex extends defineHex(defaultHexSettings) {
 }
 export interface HexData {
   visible: boolean
-  sprite: string
+  sprite?: string
   icon?: string
   color?: string
 }

@@ -26,17 +26,19 @@ onMounted(() => {
 
 <template>
   <EntryList :collapsed="collapsed" @toggle-collapse="collapsed = !collapsed">
-    <template v-if="logEntries" #list>
+    <template #filters>
       <NuxtLink v-if="route && route.query.row && route.query.column" class="py-4" to="/logs">
         Coordinate Filter {{ route.query.row }}|{{ route.query.column }} [X]
       </NuxtLink>
+    </template>
+    <template v-if="logEntries" #list>
       <div v-for="log of filteredLogs" :key="log.id" @click.stop="currentLog = log">
         {{ log.title }} [{{ shortForUser(log.author) }}]
       </div>
     </template>
     <template v-if="currentLog" #content>
       <div class="size-full">
-        <h1 class="text-2xl">
+        <h1>
           {{ currentLog.title }} - {{ currentLog.createdAt }}
         </h1>
         <div v-html="currentLog.content_html" />
