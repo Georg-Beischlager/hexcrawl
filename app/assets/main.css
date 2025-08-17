@@ -14,7 +14,10 @@ ul {
   list-style-type: georgian;
   list-style-position: inside;
 }
-
+ol {
+  list-style-type: upper-roman;
+  list-style-position: inside;
+}
 h1 {
   @apply text-2xl mb-4  font-bold
 }
@@ -32,4 +35,7 @@ h5 {
 }
 h6{
   @apply text-lg
+}
+a {
+  text-decoration: underline;
 }
