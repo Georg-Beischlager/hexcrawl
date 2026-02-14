@@ -60,7 +60,7 @@
         <li>Mach etwas dass dir Freude bereitet. Es wird ein bisschen Arbeite brauchen, mach dir das Leben nicht schwer.</li>
         <li>Mach (für die erste Session) nichts zu ambitioniertes. Einfache Abenteuer sind oft witziger als zu stark durchdachte.</li>
         <li>Baue nicht zu viele Charaktere ein die du spielen musst. Vor Allem Interaktionen zwischen 2 NPCs können sehr knifflig sein.</li>
-        <li>Mach etwas dass in sich geschlossen ist. Leg am Ende spuren wo anders hin.</li>
+        <li>Mach etwas dass in sich geschlossen ist. Lege spuren wo anders hin.</li>
         <li>Mach einen Kampf, überlege dir eine schöne Umgebung, evtl ein Rätsel.</li>
         <li>Überlege dir alles was Zahlen braucht im Vorhinein: Monster, Beute</li>
         <li>Wenn du Hilfe brauchst, melde dich bei mir, oder dem GM deines Vertrauens.</li>
@@ -109,7 +109,7 @@
       "Defense": Die Genger sollten in 3-4 durchschnittlichen Attacken sterben. ( 1d20 + 2d6 [attribut 5] würfelt durchschnittlich mehr als 17, mit Explosionen und Adv eher gegen 20)<br>
       "Coolness" Jede Art von Gegner sollte eine Besonderheit haben. Spezieller Angriff/Zauber, Item, Bane usw.<br>
       "Varianz": Je mehr Optionen die Gegner haben desto langsamer wird der Kampf. Ein Schwarm "dummer" Gegner kann ein schnelleres Kampfgefühl geben.<br><br>
-      
+
       Beispiel: Party von 6 Level 1 PCs; Annahmen über Party: Kampfattribut 5, Adavantage 1;<br><br>
 
       4 Gegner, 2 davon mit Multiattack. 1 Gegner kann teleportieren, 1 Gegner hat Spzailialisierung auf das Demoralize Bane, 1 Gegner kann heilen<br>
@@ -119,33 +119,33 @@
       Schwierigkeit: eher leicht bis durchschnittlich<br><br>
 
       <h5>Schritt 2: Bosse</h5>
-     <div>
-      Bosse sollten mehrere Optionen haben, überlegt euch 1-2 Boons und 1-2 Banes<br>
-      Bosse sollten eine Möglichkeite haben gegen banes vorzugehen. zB extra resist rolls, ein AutoSuccess, Immmunität gegen spezielle usw.<br>
-      Bosse können Trigger haben (wenn etwas bestimmtes passiert, sie einen HP Schwellwert erreichen usw.) können sie eine "out-of-order" Aktion machen, das kann Drama erzeugen<br>
-      Bosse können Handlager haben; das sind sehr temporäre NPCs, oft mit nur einem HP<br>
-      Bosse sind oft in ihren Unterschlüpfen diese können "Lair Actions" haben (oft am Ende der Runde) (zB Fließbänder und Spawner in der Laserfabrik)<br>
-      mehr Details: https://www.youtube.com/watch?v=y_zl8WWaSyI<br><br>
-      
-      Beispiel: Wir ersetzen die Healing Kreatur aus dem oberen Beispiel durch einen Boss. (das macht den Kampf deutlich schwerer)<br>
-      Der Boss hat zwei Züge und ist in seinem Unterschlupf<br>
-      Der Boss hat auf alles Advantage (2)<br>
-      Der Boss hat doppelte HP und gute Verteidigung: 32HP [16/15/15];<br>
-      Der Boss verwendet Agility und Alteration;<br>
-      Boons: Regeneration (Level 1, passiv auf sich)<br>
-      Banes: Polymorph (als Teil vom Attackieren) & Silence (AoE)<br>
-      Die Lair Action versucht 2 PCs das Immobilized Bane zu inflicten.<br>
-      Wenn der Boss auf 50% HP fällt, verwandelt er sich in eine Wilde Bestie.<br>
-      Die Regeneration und die Banes verfallen, aber er bekommt MultiAttack und einen weiteren Adv. auf attacks.<br>
-      Schwierigkeit mit dem Boss: hart (wenn die Party überrascht wird könnte es vorbei sein)<br><br>
-     </div>
+      <div>
+        Bosse sollten mehrere Optionen haben, überlegt euch 1-2 Boons und 1-2 Banes<br>
+        Bosse sollten eine Möglichkeite haben gegen banes vorzugehen. zB extra resist rolls, ein AutoSuccess, Immmunität gegen spezielle usw.<br>
+        Bosse können Trigger haben (wenn etwas bestimmtes passiert, sie einen HP Schwellwert erreichen usw.) können sie eine "out-of-order" Aktion machen, das kann Drama erzeugen<br>
+        Bosse können Handlager haben; das sind sehr temporäre NPCs, oft mit nur einem HP<br>
+        Bosse sind oft in ihren Unterschlüpfen diese können "Lair Actions" haben (oft am Ende der Runde) (zB Fließbänder und Spawner in der Laserfabrik)<br>
+        mehr Details: https://www.youtube.com/watch?v=y_zl8WWaSyI<br><br>
+
+        Beispiel: Wir ersetzen die Healing Kreatur aus dem oberen Beispiel durch einen Boss. (das macht den Kampf deutlich schwerer)<br>
+        Der Boss hat zwei Züge und ist in seinem Unterschlupf<br>
+        Der Boss hat auf alles Advantage (2)<br>
+        Der Boss hat doppelte HP und gute Verteidigung: 32HP [16/15/15];<br>
+        Der Boss verwendet Agility und Alteration;<br>
+        Boons: Regeneration (Level 1, passiv auf sich)<br>
+        Banes: Polymorph (als Teil vom Attackieren) & Silence (AoE)<br>
+        Die Lair Action versucht 2 PCs das Immobilized Bane zu inflicten.<br>
+        Wenn der Boss auf 50% HP fällt, verwandelt er sich in eine Wilde Bestie.<br>
+        Die Regeneration und die Banes verfallen, aber er bekommt MultiAttack und einen weiteren Adv. auf attacks.<br>
+        Schwierigkeit mit dem Boss: hart (wenn die Party überrascht wird könnte es vorbei sein)<br><br>
+      </div>
       <h5>Schritt 3</h5>
       NPC Quickbuild: https://openlegendrpg.com/core-rules/running-the-game#simple-build<br>
       Für wiederkehrende NPCs oder wenn ihr einen Stat-Block braucht.<br>
-      Encounter Difficulty	Total NPC Level<br>
-      Easy	Total Party Level x .5<br>
-      Moderate	Total Party Level x 1<br>
-      Hard	Total Party Level x 2<br><br>
+      Encounter Difficulty Total NPC Level<br>
+      Easy Total Party Level x .5<br>
+      Moderate Total Party Level x 1<br>
+      Hard Total Party Level x 2<br><br>
 
       <h3>Zufallstabellen</h3>
       <NuxtLink to="/random">

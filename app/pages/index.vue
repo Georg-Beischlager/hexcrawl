@@ -40,11 +40,11 @@ function onResizeObserver() {
 
 function tileRender(g: GraphicsInst, tile: CustomHex) {
   g.clear()
-  if (tile.data.color) {
-    g.lineStyle(5, tile.data.color)
-  }
-  else if (selectedTile.value?.col === tile.col && selectedTile.value?.row === tile.row) {
+  if (selectedTile.value?.col === tile.col && selectedTile.value?.row === tile.row) {
     g.lineStyle(5, `#00a3${blue.value.toString(16)}`)
+  }
+  else if (tile.data.color) {
+    g.lineStyle(5, tile.data.color)
   }
   else {
     g.lineStyle(5, `#00a3ff`)
@@ -115,4 +115,10 @@ function selectTile(t: CustomHex) {
 </template>
 
 <style>
+.hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background-color: #d51;
+  aspect-ratio: 1;
+  width: 33%;
+}
 </style>

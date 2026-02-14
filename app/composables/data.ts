@@ -4,6 +4,8 @@ const tags = ref<Tag[] | undefined>()
 const crew = ref<Character[] | undefined>()
 const users = ref<{ id: number, short: string }[] | undefined>()
 const mapTiles = ref<Maptile[] | undefined>()
+const hexImages = ref<HexImage[] | undefined>()
+const media = ref<Media[] | undefined>()
 let init = false
 
 async function fetchApiData<T>(url: string) {
@@ -45,7 +47,9 @@ export async function useData() {
     crew.value = await fetchApiData<Character[]>(`${apiUrl()}/characters?limit=999`)
     users.value = await fetchApiData<{ id: number, short: string }[]>(`${apiUrl()}/users/shorts`)
     mapTiles.value = await fetchApiData<Maptile[]>(`${apiUrl()}/maptiles?limit=999`)
+    hexImages.value = await fetchApiData<HexImage[]>(`${apiUrl()}/hexImages?limit=999`)
+    media.value = await fetchApiData<Media[]>(`${apiUrl()}/media?limit=999`)
     init = true
   }
-  return { logEntries, dbEntries, tags, crew, mapTiles, dbEntriesForCoords, logEntriesForCoords, shortForUser }
+  return { logEntries, dbEntries, tags, crew, mapTiles, hexImages, media, dbEntriesForCoords, logEntriesForCoords, shortForUser }
 }
