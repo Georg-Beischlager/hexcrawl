@@ -25,7 +25,7 @@ async function init() {
   const apiTiles = mapTiles.value?.map((mapTile) => {
     let sprite = ''
     if (mapTile.image) {
-      sprite = ((mapTile.image as HexImage).media as Media).url ?? ''
+      sprite = ((mapTile.image as HexImage).media as Media).hexUrl ?? ''
     }
     return {
       coords: { row: mapTile.coordinates?.row, col: mapTile.coordinates?.column } as OffsetCoordinates,
