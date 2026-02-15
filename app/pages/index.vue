@@ -41,7 +41,7 @@ function onResizeObserver() {
 function tileRender(g: GraphicsInst, tile: CustomHex) {
   g.clear()
   if (selectedTile.value?.col === tile.col && selectedTile.value?.row === tile.row) {
-    g.lineStyle(5, `#00a3${blue.value.toString(16)}`)
+    g.lineStyle(5, `#00a3${blue.value.toString(16)}`, 1 - Math.sin(count))
   }
   else if (tile.data.color) {
     g.lineStyle(5, tile.data.color)
